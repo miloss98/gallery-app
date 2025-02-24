@@ -1,7 +1,7 @@
-'use client'
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState } from 'react';
 
-const API_KEY = "49032845-49f4bd8ae2856bf3313423fc8";
+const API_KEY = '49032845-49f4bd8ae2856bf3313423fc8';
 const API_URL = `https://pixabay.com/api/?key=${API_KEY}&q=interior+design&image_type=photo&per_page=12`;
 
 export default function OurWork() {
@@ -15,7 +15,7 @@ export default function OurWork() {
         const data = await response.json();
         setImages(data.hits);
       } catch (error) {
-        console.error("Error fetching images:", error);
+        console.error('Error fetching images:', error);
       } finally {
         setLoading(false);
       }
@@ -28,7 +28,6 @@ export default function OurWork() {
       <h1 className="text-3xl font-bold text-center mb-6">
         Interior Design Gallery
       </h1>
-      
 
       {loading ? (
         <p className="text-center text-gray-500">Loading images...</p>
