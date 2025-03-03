@@ -1,14 +1,31 @@
 'use client';
-import { useState } from 'react';
-import {
-  ReactCompareSlider,
-  ReactCompareSliderImage,
-} from 'react-compare-slider';
+
+import { useState, useEffect } from 'react';
+
+import { Slider } from './components/slider';
+import { CompareImage } from './components/compareImage';
+
+const API_KEY = '49032845-49f4bd8ae2856bf3313423fc8';
+const API_URL = `https://pixabay.com/api/?key=${API_KEY}&q=interior+design&image_type=photo&per_page=5`;
 
 export default function Home() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setImages(data.hits);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+    fetchImages();
+  }, []);
+
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col ">
       <section
         className="bg-cover bg-center w-full h-screen"
         style={{ backgroundImage: "url('/hero.jpg')" }}
@@ -22,26 +39,9 @@ export default function Home() {
           </h1>
         </div>
       </section>
-      <section className="w-full h-4/6 overflow-hidden ">
-        <ReactCompareSlider
-          itemOne={
-            <ReactCompareSliderImage
-              src="before.jpg"
-              srcSet="before.jpg"
-              alt="Image one"
-              className="object-contain"
-            />
-          }
-          itemTwo={
-            <ReactCompareSliderImage
-              src="after.jpg"
-              srcSet="after.jpg"
-              alt="Image two"
-              className="object-fill"
-            />
-          }
-        />
-      </section>
+
+      <CompareImage />
+      <Slider images={images} />
     </main>
   );
 }
