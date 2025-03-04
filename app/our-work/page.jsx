@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { ClimbingBoxLoader } from 'react-spinners';
 
-const API_KEY = '49032845-49f4bd8ae2856bf3313423fc8';
-const API_URL = `https://pixabay.com/api/?key=${API_KEY}&q=interior+design&image_type=photo&per_page=12`;
+const API_URL = `https://pixabay.com/api/?key=${process.env.NEXT_PUBLIC_API_KEY}&q=interior+design&image_type=photo&per_page=12`;
 
 export default function OurWork() {
   const [images, setImages] = useState([]);
@@ -24,8 +24,6 @@ export default function OurWork() {
     fetchImages();
   }, []);
 
-  console.log(images);
-
   return (
     <div className="mx-auto mt-20">
       <div className="py-20 md:px-10 px-5 lg:px-20 flex flex-col gap-12">
@@ -34,7 +32,9 @@ export default function OurWork() {
         </h1>
 
         {loading ? (
-          <p className="text-center text-gray-500">Loading images...</p>
+          <div className="w-full flex justify-center">
+            <ClimbingBoxLoader color="#000000" />
+          </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
             {images.map((image, id) => (
@@ -46,6 +46,7 @@ export default function OurWork() {
                     className="w-full h-56 object-cover transition-transform duration-300 hover:scale-105"
                     fill
                     priority
+                    sizes="100% 100%"
                   />
                   <span className="absolute inset-0 bg-black bg-opacity-20 opacity-0 hover:opacity-100 flex items-center justify-center text-white text-lg font-bold">
                     {image.user}
