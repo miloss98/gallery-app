@@ -23,28 +23,28 @@ export default function Home() {
   const sliderImages = ['/hero2.webp', '/hero3.webp', '/hero4.webp'];
 
   return (
-    <main className="flex flex-col ">
+    <main className="flex flex-col">
       <section
-        className="bg-cover bg-center w-full h-screen"
+        className="bg-cover bg-center w-full aspect-video h-[50vh] md:h-screen"
         style={{ backgroundImage: "url('/hero.webp')" }}
       >
         <div
           className="flex flex-col items-center gap-8 justify-center 
           w-full h-full bg-black bg-opacity-50"
         >
-          <h1 className="text-white text-4xl font-bold">
-            Welcome to Our Gallery
+          <h1 className="font-bold md:text-3xl text-2xl lg:text-4xl text-white">
+            Welcome to Gallery app
           </h1>
           <LinkButton href="/our-work"> Our projects</LinkButton>
         </div>
       </section>
 
       <CompareImage />
-      <div className="flex w-full flex-col pb-8 items-center gap-8">
-        <p className="font-bold md:text-3xl text-2xl lg:text-4xl">
+      <div className="flex w-full flex-col pb-8 items-center gap-8 px-5 md:px-10 lg:px-20">
+        <p className="font-bold md:text-3xl text-2xl lg:text-4xl text-center">
           Happy clients, beautiful designs.{' '}
         </p>
-        <p className="text-base md:text-lg lg:text-xl">
+        <p className="text-base md:text-lg lg:text-xl text-center">
           Our customers love our professional virtual interior design services
           and here is why.
         </p>
