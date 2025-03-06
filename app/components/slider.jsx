@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'react-feather';
@@ -19,7 +20,7 @@ export const Slider = ({ images }) => {
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
-        {images.map((image: any, index: number) => (
+        {images.map((image, index) => (
           <div
             key={index}
             className="w-full flex-shrink-0 relative aspect-video"
@@ -44,7 +45,7 @@ export const Slider = ({ images }) => {
       </button>
 
       <div className="absolute bg-black/80 rounded-full p-4 bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index: any) => (
+        {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}

@@ -1,8 +1,23 @@
-'use client';
-import Link from 'next/link';
-import { Slider } from './components/slider';
-import { CompareImage } from './components/compareImage';
-import { LogosSection } from './components/logosSection';
+import { CompareImage, Slider, LogosSection, LinkButton } from './components';
+
+export const metadata = {
+  title: 'Home | Gallery',
+  description: 'Welcome to Gallery website.',
+  openGraph: {
+    title: 'Home | My Website',
+    description: 'Welcome to Gallery website.',
+    url: 'https://example.com',
+    siteName: 'Gallery app',
+    images: [
+      {
+        url: 'https://example.com/og-image.jpg',
+        width: 800,
+        height: 600,
+      },
+    ],
+    type: 'website',
+  },
+};
 
 export default function Home() {
   const sliderImages = ['/hero2.webp', '/hero3.webp', '/hero4.webp'];
@@ -20,12 +35,7 @@ export default function Home() {
           <h1 className="text-white text-4xl font-bold">
             Welcome to Our Gallery
           </h1>
-          <Link
-            href="/our-work"
-            className="bg-white rounded-lg p-3 font-medium text-xl hover:bg-gradient-to-r hover:to-slate-400 hover:from-white"
-          >
-            Our projects
-          </Link>
+          <LinkButton href="/our-work"> Our projects</LinkButton>
         </div>
       </section>
 

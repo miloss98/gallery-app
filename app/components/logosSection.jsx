@@ -17,7 +17,7 @@ export const LogosSection = () => {
         </p>
       </div>
       <div className="w-full flex-wrap flex justify-center gap-12 md:gap-20 items-center">
-        {logos.map((l: any, id: number) => {
+        {logos.map((l, id) => {
           return (
             <div
               key={id}
