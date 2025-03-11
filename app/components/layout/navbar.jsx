@@ -54,7 +54,7 @@ export const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center p-5 shadow-white shadow-sm">
-          <Link href="/">
+          <Link href="/" onClick={() => setIsMenuOpen(false)}>
             <Image
               src="/logo-white.svg"
               alt="Gallery logo"
@@ -68,13 +68,25 @@ export const Navbar = () => {
         </div>
 
         <div className="flex flex-col items-center gap-6 mt-10">
-          <Link href="/our-work" className="text-xl">
+          <Link
+            href="/our-work"
+            className="text-xl"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Our Work
           </Link>
-          <Link href="/about" className="text-xl">
+          <Link
+            href="/about"
+            className="text-xl"
+            onClick={() => setIsMenuOpen(false)}
+          >
             About Us
           </Link>
-          <Link href="/contact" className="text-xl">
+          <Link
+            href="/contact"
+            className="text-xl"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Contact Us
           </Link>
         </div>
