@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { MoonLoader } from 'react-spinners';
 
 const API_URL = `https://pixabay.com/api/?key=${process.env.NEXT_PUBLIC_API_KEY}&q=interior+design&image_type=photo&per_page=12`;
@@ -57,7 +58,11 @@ export default function OurWorkClientSide() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
             {images.map((image, id) => (
-              <div key={id} className="flex flex-col gap-2">
+              <Link
+                key={id}
+                href={`/our-work/${image.id}`}
+                className="flex flex-col gap-2"
+              >
                 <div className="relative overflow-hidden rounded-lg shadow-md aspect-video">
                   <Image
                     src={image.largeImageURL}
@@ -72,7 +77,7 @@ export default function OurWorkClientSide() {
                   </span>
                 </div>
                 <p className="text-center text-bold text-2xl"> {image.user} </p>
-              </div>
+              </Link>
             ))}
           </div>
         )}

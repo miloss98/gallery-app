@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'react-feather';
+import { usePathname } from 'next/navigation';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -41,9 +43,24 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center text-black gap-4 xl:gap-8 font-medium text-base md:text-xl 2xl:text-2xl tracking-wide">
-          <Link href="/our-work">Our Work</Link>
-          <Link href="/about">About Us</Link>
-          <Link href="/contact">Contact Us</Link>
+          <Link
+            className={`hover:underline-offset-8 hover:underline ${pathname === '/our-work' && 'underline underline-offset-8 text-blue-700'}`}
+            href="/our-work"
+          >
+            Our Work
+          </Link>
+          <Link
+            className={`hover:underline-offset-8 hover:underline ${pathname === '/about' && 'underline underline-offset-8 text-blue-700'}`}
+            href="/about"
+          >
+            About Us
+          </Link>
+          <Link
+            className={`hover:underline-offset-8 hover:underline ${pathname === '/contact' && 'underline underline-offset-8 text-blue-700'}`}
+            href="/contact"
+          >
+            Contact Us
+          </Link>
         </div>
       </div>
 

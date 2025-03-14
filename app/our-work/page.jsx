@@ -10,7 +10,7 @@ export const metadata = {
     siteName: 'My Website',
     images: [
       {
-        url: 'https://example.com/default-image.jpg', // Replace with a relevant image
+        url: 'https://example.com/default-image.jpg',
         width: 1200,
         height: 630,
       },
