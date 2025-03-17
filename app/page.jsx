@@ -32,7 +32,7 @@ export default function Home() {
           className="flex flex-col items-center gap-8 justify-center 
           w-full h-full bg-black bg-opacity-50"
         >
-          <h1 className="font-bold md:text-3xl text-2xl lg:text-4xl text-white">
+          <h1 className="font-roboto md:text-4xl text-3xl lg:text-5xl text-white">
             Welcome to Gallery app
           </h1>
           <LinkButton href="/our-work"> Our projects</LinkButton>

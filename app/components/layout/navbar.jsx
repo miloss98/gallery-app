@@ -59,7 +59,7 @@ export const Navbar = () => {
             className={`hover:underline-offset-8 hover:underline ${pathname === '/contact' && 'underline underline-offset-8 text-blue-700'}`}
             href="/contact"
           >
-            Contact Us
+            Contact
           </Link>
         </div>
       </div>
@@ -104,7 +104,7 @@ export const Navbar = () => {
             className="text-xl"
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact Us
+            Contact
           </Link>
         </div>
       </div>

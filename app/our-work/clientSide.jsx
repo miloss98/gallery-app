@@ -47,7 +47,7 @@ export default function OurWorkClientSide() {
   return (
     <div className="mx-auto mt-20">
       <div className="py-20 md:px-10 px-5 lg:px-20 flex flex-col gap-12">
-        <h1 className="text-3xl font-bold text-center mb-6">
+        <h1 className="font-roboto md:text-4xl text-3xl lg:text-5xl text-center">
           Interior Design Gallery
         </h1>
 
