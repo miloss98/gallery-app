@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { MoonLoader } from 'react-spinners';
+import { ArrowLeft, SkipBack } from 'react-feather';
 
 export default function SingleProjectClientSide({ projectId }) {
   const [loading, setLoading] = useState(true);
@@ -27,37 +29,73 @@ export default function SingleProjectClientSide({ projectId }) {
     fetchProjectData();
   }, [projectId]);
 
-  console.log(projectData);
-
   return (
-    <>
+    <div className="my-20">
       {loading ? (
         <MoonLoader />
       ) : (
-        <div className="flex flex-col gap-4 ">
-          <div className="relative w-[600px] h-[400px]">
-            <Image
-              src={projectData.webformatURL}
-              alt={projectData.user}
-              fill
-              sizes="100% 100%"
-            />
+        <div className="w-full flex flex-col lg:flex-row gap-12 pt-12">
+          <div className="w-full lg:w-1/2 flex flex-col gap-8 md:gap-16">
+            <Link
+              href="/our-work"
+              className="flex gap-2 items-center text-xl hover:font-medium"
+            >
+              <ArrowLeft className="w-6 h-6" />
+              Back to projects
+            </Link>
+            <h1 className="text-4xl">Project: {projectData.user}</h1>
+            <div className="flex flex-col gap-4 md:gap-8">
+              <p className="text-xl md:text-2xl lg:text-2xl">
+                Page views: {projectData.views}
+              </p>
+              <p className="text-xl md:text-2xl lg:text-2xl">
+                Downloads: {projectData.downloads}
+              </p>
+              <p className="text-xl md:text-2xl lg:text-2xl">
+                Likes: {projectData.likes}
+              </p>
+
+              <Link
+                href={projectData.pageURL}
+                className="font-bold hover:underline text-xl"
+              >
+                {projectData.pageURL}{' '}
+              </Link>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="relative w-12 aspect-square">
+          <div className="flex flex-col gap-4 w-full lg:w-1/2">
+            <div className="relative aspect-video w-full">
               <Image
-                src={projectData.userImageURL}
+                src={projectData.webformatURL}
                 alt={projectData.user}
                 fill
                 sizes="100% 100%"
-                className="rounded-full"
+                className="rounded-xl"
+                priority
               />
             </div>
-            <h1>{projectData.user}</h1>
+            <div className="flex items-center gap-4">
+              {projectData.userImageURL && (
+                <div className="relative w-12 aspect-square">
+                  <Image
+                    src={projectData.userImageURL}
+                    alt={projectData.user}
+                    fill
+                    sizes="100% 100%"
+                    className="rounded-full"
+                  />
+                </div>
+              )}
+
+              <h1 className="text-2xl">{projectData.user}</h1>
+            </div>
+            <p className="text-xl flex flex-wrap gap-2">
+              <span className="font-medium"> Tags: </span>
+              {projectData.tags}
+            </p>
           </div>
-          <p>{projectData.tags}</p>
         </div>
       )}
-    </>
+    </div>
   );
 }

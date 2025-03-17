@@ -6,25 +6,6 @@ import { MoonLoader } from 'react-spinners';
 
 const API_URL = `https://pixabay.com/api/?key=${process.env.NEXT_PUBLIC_API_KEY}&q=interior+design&image_type=photo&per_page=12`;
 
-export const metadata = {
-  title: 'Our Work | My Website',
-  description: 'Browse our portfolio showcasing our best work.',
-  openGraph: {
-    title: 'Our Work | My Website',
-    description: 'Browse our portfolio showcasing our best work.',
-    url: 'https://example.com/our-work',
-    siteName: 'My Website',
-    images: [
-      {
-        url: 'https://example.com/default-image.jpg',
-        width: 1200,
-        height: 630,
-      },
-    ],
-    type: 'website',
-  },
-};
-
 export default function OurWorkClientSide() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
