@@ -28,7 +28,7 @@ export default function Contact() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45327.72524589384!2d19.16361021833913!3d44.76076493936825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475be91cb02d7249%3A0xde5f5ab6329ada88!2sBijeljina!5e0!3m2!1shr!2sba!4v1742224507095!5m2!1shr!2sba"
             allowFullScreen=""
-            loading="lazy"
+            loading="eager"
             referrerPolicy="no-referrer-when-downgrade"
             className="w-full h-full"
           ></iframe>
